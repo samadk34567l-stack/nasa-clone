@@ -93,6 +93,50 @@ body {
 .nav-links li:hover, .explore:hover {
     color: #ccc;
 }
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px; /* Padding kam kar di */
+        height: auto;
+        flex-wrap: wrap; /* Elements ko next line par aane dega */
+    }
+
+    .nav-left {
+        order: 1; /* Search aur Explore ko adjust karne ke liye */
+    }
+
+    .nav-center {
+        order: 2;
+    }
+
+    .nav-right {
+        order: 3;
+        width: 100%; /* Menu ko puri width de di */
+        margin-top: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column; /* Links ko ek ke niche ek dikhayega */
+        gap: 15px;
+        align-items: flex-start;
+        display: none; /* Default mein mobile par hide rahega (Toggle ke liye) */
+    }
+
+    /* Jab menu active ho tab dikhane ke liye */
+    .nav-right.active .nav-links {
+        display: flex;
+        padding-bottom: 10px;
+    }
+
+    .search-container input {
+        width: 120px; /* Mobile par search box chota kar diya */
+    }
+
+    .nav-center .logo {
+        height: 45px; /* Logo thoda chota */
+    }
+}
+
 /* Hero Section Container */
 .hero-section {
     position: relative;
@@ -214,7 +258,80 @@ body {
     padding: 60px 5%;
     background-color: #fff;
 }
+/* --- Media Queries for Responsiveness --- */
 
+/* Tablets aur Choti Screens (Laptops) */
+@media screen and (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 60px; /* Heading thodi choti */
+    }
+    
+    .hero-bottom-cards {
+        gap: 15px;
+    }
+}
+
+/* Mobile Phones (768px aur usse kam) */
+@media screen and (max-width: 768px) {
+    .hero-section {
+        height: auto; /* Fixed height ki jagah content ke hisaab se */
+        padding: 100px 5% 40px 5%; /* Top padding navbar se bachne ke liye */
+        justify-content: flex-start;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center; /* Mobile par center alignment zyada acchi lagti hai */
+    }
+
+    .hero-content h1 {
+        font-size: 40px; /* Mobile ke liye perfect size */
+        margin-bottom: 15px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .btn-learn {
+        display: inline-block;
+        width: 100%; /* Mobile par button full width behtar lagta hai */
+        max-width: 250px;
+    }
+
+    /* Bottom Cards ko responsive karna */
+    .hero-bottom-cards {
+        position: relative; /* Absolute se hatakar flow mein le aaye */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        flex-direction: column; /* Cards ek ke niche ek aayenge */
+        margin-top: 50px;
+        background: rgba(0, 0, 0, 0.5); /* Mobile par cards ke piche halka background */
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .card {
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Bohat chote phones (480px) */
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    
+    .hero-section {
+        background-position: 70% center; /* Image ka main part center mein rakhega */
+    }
+}
 /* --- Header Section --- */
 .news-header {
     display: flex;
